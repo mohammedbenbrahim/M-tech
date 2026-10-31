@@ -1,0 +1,19 @@
+# Logs
+*.log
+*.log.gz
+backend/logs/
+
+# Environment files
+.env
+*.env
+backend/.env
+frontend/.env
+
+# IDE & OS cache
+.DS_Store
+.idea/
+.vscode/
+.expo/
+
+# Dependencies
+node_modules/
