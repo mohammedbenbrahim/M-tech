@@ -38,26 +38,6 @@
 
 **M-TECH** replaces manual and paper-based tracking systems with a streamlined, digital workflow. It enables real-time synchronization between field technicians and the central administration. By leveraging modern mobile and web technologies, it ensures that workshop operations are tracked accurately, securely, and efficiently.
 
----
-
-## 📱 Screenshots
-
-> **Note:** Add your actual application screenshots to an `assets` folder and update the image paths below!
-
-<div align="center">
-  <table>
-    <tr>
-      <td align="center"><b>Login Screen</b></td>
-      <td align="center"><b>Dashboard</b></td>
-      <td align="center"><b>Intervention Tracking</b></td>
-    </tr>
-    <tr>
-      <td><img src="https://via.placeholder.com/250x500.png?text=Login+Screen" alt="Login" width="250"/></td>
-      <td><img src="https://via.placeholder.com/250x500.png?text=Dashboard" alt="Dashboard" width="250"/></td>
-      <td><img src="https://via.placeholder.com/250x500.png?text=Intervention" alt="Intervention" width="250"/></td>
-    </tr>
-  </table>
-</div>
 
 ---
 
