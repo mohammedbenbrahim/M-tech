@@ -1,90 +1,184 @@
-M-TECH
+<div align="center">
 
-M-TECH is a cross-platform mobile application designed to digitize and centralize the management of technical interventions in maintenance workshops. It enables real-time synchronization between field technicians and central administration, replacing manual and paper-based tracking systems with a streamlined, digital workflow.
+  <!-- You can add a logo image here -->
+  <!-- <img src="path/to/your/logo.png" alt="M-TECH Logo" width="200"/> -->
 
-🚀 Key Features
+  <h1>🛠️ M-TECH</h1>
+  
+  <p>
+    <b>A cross-platform mobile application designed to digitize and centralize the management of technical interventions in maintenance workshops.</b>
+  </p>
 
-Secure Authentication: Token-based session management using JWT (JSON Web Tokens).
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
 
-Role-Based Access Control: Distinct interfaces and permissions tailored for Technicians and Administrators.
+---
 
-Intervention Management: Technicians can view assigned tasks, check vehicle details, and update statuses (e.g., Not Started, In Progress, Paused, Completed).
+## 📖 Table of Contents
 
-Real-Time Time Tracking: Integrated timers to track active work time, pause durations, and total intervention time.
+- [About the Project](#-about-the-project)
+- [Screenshots](#-screenshots)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Database Architecture](#-database-architecture)
+- [Author](#-author)
 
-Digital Reporting: Technicians can submit detailed intervention reports, log issues, and attach necessary documentation directly from the field.
+---
 
-Offline Mode: Users can continue filling out reports in areas without network coverage, with automatic data synchronization triggering once the connection is restored.
+## 🚀 About the Project
 
-🛠️ Tech Stack
+**M-TECH** replaces manual and paper-based tracking systems with a streamlined, digital workflow. It enables real-time synchronization between field technicians and the central administration. By leveraging modern mobile and web technologies, it ensures that workshop operations are tracked accurately, securely, and efficiently.
 
-Frontend: React Native, TypeScript
+---
 
-Backend: Node.js, Express.js
+## 📱 Screenshots
 
-Database: MySQL
+> **Note:** Add your actual application screenshots to an `assets` folder and update the image paths below!
 
-Security: JWT, bcryptjs
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Login Screen</b></td>
+      <td align="center"><b>Dashboard</b></td>
+      <td align="center"><b>Intervention Tracking</b></td>
+    </tr>
+    <tr>
+      <td><img src="https://via.placeholder.com/250x500.png?text=Login+Screen" alt="Login" width="250"/></td>
+      <td><img src="https://via.placeholder.com/250x500.png?text=Dashboard" alt="Dashboard" width="250"/></td>
+      <td><img src="https://via.placeholder.com/250x500.png?text=Intervention" alt="Intervention" width="250"/></td>
+    </tr>
+  </table>
+</div>
 
-Infrastructure: Docker (for microservices containerization)
+---
 
-🗄️ Database Architecture
+## ✨ Key Features
 
-The system relies on a structured relational database architecture:
+* **🔐 Secure Authentication:** Token-based session management using JWT (JSON Web Tokens).
+* **👥 Role-Based Access Control:** Distinct interfaces and permissions tailored for Technicians and Administrators.
+* **📋 Intervention Management:** View assigned tasks, check vehicle details, and update statuses (e.g., *Not Started, In Progress, Paused, Completed*).
+* **⏱️ Real-Time Time Tracking:** Integrated timers to track active work time, pause durations, and total intervention time.
+* **📝 Digital Reporting:** Submit detailed intervention reports, log issues, and attach necessary documentation directly from the field.
+* **📴 Offline Mode:** Continue filling out reports in areas without network coverage. Data automatically syncs once the connection is restored.
 
-Users: Stores user credentials, hashed passwords, and role definitions.
+---
 
-Operations / Orders: Contains work order details, current statuses, deadlines, and assigned equipment.
+## 💻 Tech Stack
 
-History / Logs: Tracks user actions and status updates for auditing and performance tracking purposes.
+### Frontend (Mobile App)
+* **Framework:** React Native
+* **Language:** TypeScript
 
-⚙️ Installation & Setup
+### Backend (API)
+* **Environment:** Node.js
+* **Framework:** Express.js
+* **Security:** JWT, bcryptjs, Helmet, CORS
 
-Prerequisites
+### Database & Infrastructure
+* **Database:** MySQL
+* **Containerization:** Docker (Microservices deployment ready)
 
-Node.js
+---
 
-MySQL Server
+## 📂 Project Structure
 
-React Native development environment (Android Studio / Xcode)
+```text
+M_technicien/
+│
+├── client/                          # Frontend directory (React Native)
+│   ├── src/
+│   │   ├── components/              # Reusable UI components
+│   │   ├── screens/                 # App screens (Login, Dashboard, etc.)
+│   │   ├── services/                # API communication services
+│   │   └── App.js                   # Main application entry point
+│   └── package.json                 
+│
+├── server/                          # Backend directory (Express.js)
+│   ├── src/
+│   │   ├── controllers/             # Business logic for routes
+│   │   ├── routes/                  # Express API routes
+│   │   ├── models/                  # DB models (MySQL interactions)
+│   │   └── app.js                   # Main Express application
+│   ├── .env                         # Environment variables (DB, JWT secrets)
+│   └── package.json                 
+│
+└── README.md                        # Project documentation
+```
 
-Backend Setup
+---
 
-Navigate to the server/ directory.
+## ⚙️ Getting Started
 
-Install dependencies:
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
 
-npm install jsonwebtoken bcryptjs express cors helmet
+### Prerequisites
 
+Ensure you have the following installed:
+* [Node.js](https://nodejs.org/) (v16 or higher recommended)
+* [MySQL Server](https://dev.mysql.com/downloads/mysql/)
+* React Native development environment ([Android Studio](https://developer.android.com/studio) / [Xcode](https://developer.apple.com/xcode/))
 
-Configure environment variables in a .env file (Database credentials, JWT Secret, etc.).
+### 1. Clone the Repository
 
-Start the API server:
+```bash
+git clone https://github.com/mohammedbenbrahim/m-tech.git
+cd m-tech
+```
 
-npm run dev
+### 2. Backend Setup
 
-
-Frontend Setup
-
-Navigate to the client/ directory.
-
-Install dependencies:
-
+```bash
+cd server
 npm install
+```
+* Create a `.env` file in the `server` directory and add your MySQL database credentials and JWT Secret.
+* Start the development server:
+```bash
+npm run dev
+```
 
+### 3. Frontend Setup
 
-Run the application on a simulator or physical device:
-
-Android:
-
+```bash
+cd ../client
+npm install
+```
+* Run the application on your preferred platform:
+```bash
+# For Android
 npx react-native run-android
 
-
-iOS:
-
+# For iOS (Mac only)
 npx react-native run-ios
+```
 
+---
 
-👨‍💻 Author
+## 🗄️ Database Architecture
 
-Mohammed Benbrahim
+The system relies on a structured relational database architecture to maintain data integrity:
+
+* **`Users`:** Stores user credentials, hashed passwords (bcrypt), and role definitions.
+* **`Operations` / `OR_tech`:** Contains work order details, current statuses, deadlines, and assigned equipment/vehicles.
+* **`Logs`:** Tracks user actions and status updates for auditing and performance tracking purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Mohammed Benbrahim**
+* GitHub: [@mohammedbenbrahim](https://github.com/mohammedbenbrahim)
+
+---
+<div align="center">
+  <i>Created for the Auto Hall End-of-Studies Project</i>
+</div>
