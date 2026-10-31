@@ -1,0 +1,15 @@
+import { Stack } from "expo-router";
+import React from "react";
+
+export default function PointageLayout() {
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* Main Pointage screen */}
+      <Stack.Screen name="index" />
+      {/* Hidden screens, accessible only through navigation */}
+      <Stack.Screen name="profile" />
+      <Stack.Screen name="about" />
+
+    </Stack>
+  );
+}

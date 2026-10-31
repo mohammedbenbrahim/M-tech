@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\.dfed423e1303e2a5be560dfde38fabaf113843e2-audit.json",
+    "files": [
+        {
+            "date": 1743696029540,
+            "name": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\2025-04-03.log",
+            "hash": "223be2363ab99f96b3cce3c7ee01337d93ab2fc348dbee91f6404279c6fc6df9"
+        },
+        {
+            "date": 1743757446035,
+            "name": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\2025-04-04.log",
+            "hash": "93fcf80ebc0e5a68484f8ecdd77da37e642539d9a28f1f4134a2e180234fb82d"
+        },
+        {
+            "date": 1744013307402,
+            "name": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\2025-04-07.log",
+            "hash": "6f86311ad8e186b820b323cf177b231510ecfa14327eb6265a8a1c9467178807"
+        },
+        {
+            "date": 1744126649638,
+            "name": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\2025-04-08.log",
+            "hash": "8f8bc981bca010df7fa5bd4d4bffa9493ab59fd69565c1bbe14a9043939f5b2d"
+        },
+        {
+            "date": 1744185785257,
+            "name": "C:\\Users\\003907\\Desktop\\mTech\\backend\\logs\\Main\\2025-04-09.log",
+            "hash": "2d31002f62776793dbaad4c4f70a0bbd30323dbf395cf19b1a4587caa45447dd"
+        }
+    ],
+    "hashType": "sha256"
+}

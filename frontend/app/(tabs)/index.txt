@@ -1,0 +1,272 @@
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  RefreshControl,
+  TouchableOpacity,
+} from "react-native";
+import { useAuth } from "../../context/AuthContex";
+import { getUserData } from "../../services/api";
+import { CircleAlert as AlertCircle } from "lucide-react-native";
+import EmptyHeader from "@/components/headers/EmptyHeader";
+import ProfileHeader from "@/components/headers/ProfileHeader";
+import { HelloWave } from "@/components/HelloWave";
+import { Collapsible } from "@/components/Collapsible";
+import { router } from "expo-router";
+
+export default function HomeScreen() {
+  const { user } = useAuth();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const fetchUserData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await getUserData();
+      setUserData(data);
+    } catch (err) {
+      setError("Échec du chargement des données. Veuillez réessayer.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    fetchUserData();
+  };
+
+  return (
+    <View style={{ flex: 1 }}>
+      <ProfileHeader backgroundColor="#5e72e4">
+        {/* <Text style={styles.greeting}>Bienvenue sur votre tableau de bord</Text> */}
+      </ProfileHeader>
+      <ScrollView
+        style={styles.container}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        {error ? (
+          <View style={styles.errorContainer}>
+            <AlertCircle size={24} color="#d32f2f" />
+            <Text style={styles.errorText}>{error}</Text>
+            <TouchableOpacity
+              style={styles.retryButton}
+              onPress={fetchUserData}
+            >
+              <Text style={styles.retryButtonText}>Réessayer</Text>
+            </TouchableOpacity>
+          </View>
+        ) : loading ? (
+          <View style={styles.loadingContainer}>
+            <Text style={styles.loadingText}>Chargement des données...</Text>
+          </View>
+        ) : (
+          <View style={styles.content}>
+            <View style={styles.card}>
+              <Text style={styles.cardTitle}>Tableau de bord</Text>
+              <Text style={styles.cardText}>
+                Il s'agit de votre tableau de bord principal. Vous pouvez y voir
+                un aperçu de votre compte et de vos activités récentes.
+              </Text>
+            </View>
+
+            <View style={styles.statsContainer}>
+              <View style={[styles.statCard, { backgroundColor: "#5e72e4" }]}>
+                <Text style={styles.statNumber}>28</Text>
+                <Text style={styles.statLabel}>Ordre de réparation</Text>
+              </View>
+              <View style={[styles.statCard, { backgroundColor: "#11cdef" }]}>
+                <Text style={styles.statNumber}>8</Text>
+                <Text style={styles.statLabel}>Opérations</Text>
+              </View>
+              <View style={[styles.statCard, { backgroundColor: "#2dce89" }]}>
+                <Text style={styles.statNumber}>95%</Text>
+                <Text style={styles.statLabel}>Réalisation</Text>
+              </View>
+            </View>
+
+            <View style={styles.card}>
+              <Text style={styles.cardTitle}>Activité récente</Text>
+              <View style={styles.activityItem}>
+                <View style={styles.activityDot} />
+                <View style={styles.activityContent}>
+                  <Text style={styles.activityTitle}>Profil mis à jour</Text>
+                  <Text style={styles.activityTime}>il y a 2 heures</Text>
+                </View>
+              </View>
+              <View style={styles.activityItem}>
+                <View style={styles.activityDot} />
+                <View style={styles.activityContent}>
+                  <Text style={styles.activityTitle}>
+                    Nouvelle tâche ajoutée
+                  </Text>
+                  <Text style={styles.activityTime}>Hier</Text>
+                </View>
+              </View>
+              <View style={styles.activityItem}>
+                <View style={styles.activityDot} />
+                <View style={styles.activityContent}>
+                  <Text style={styles.activityTitle}>Mot de passe changé</Text>
+                  <Text style={styles.activityTime}>Il y a 3 jours</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        )}
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "transparent",
+  },
+  header: {
+    padding: 20,
+    paddingTop: 15,
+    backgroundColor: "#5e72e4",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  greeting: {
+    fontSize: 18,
+    fontFamily: "Poppins-Bold",
+    color: "#fff",
+    textAlign: "center",
+  },
+  subGreeting: {
+    fontSize: 16,
+    fontFamily: "Poppins-Regular",
+    color: "rgba(255, 255, 255, 0.8)",
+    marginTop: 5,
+    textAlign: "center",
+  },
+  content: {
+    padding: 16,
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontFamily: "Poppins-SemiBold",
+    color: "#333",
+    marginBottom: 8,
+  },
+  cardText: {
+    fontSize: 14,
+    fontFamily: "Poppins-Regular",
+    color: "#666",
+    lineHeight: 22,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 16,
+  },
+  statCard: {
+    flex: 1,
+    borderRadius: 12,
+    padding: 16,
+    marginHorizontal: 4,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  statNumber: {
+    fontSize: 24,
+    fontFamily: "Poppins-Bold",
+    color: "#fff",
+  },
+  statLabel: {
+    fontSize: 12,
+    fontFamily: "Poppins-Medium",
+    color: "rgba(255, 255, 255, 0.8)",
+    textAlign: "center",
+  },
+  activityItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+  activityDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#5e72e4",
+    marginRight: 12,
+  },
+  activityContent: {
+    flex: 1,
+  },
+  activityTitle: {
+    fontSize: 14,
+    fontFamily: "Poppins-Medium",
+    color: "#333",
+  },
+  activityTime: {
+    fontSize: 12,
+    fontFamily: "Poppins-Regular",
+    color: "#999",
+    marginTop: 2,
+  },
+  errorContainer: {
+    margin: 16,
+    padding: 16,
+    backgroundColor: "#ffebee",
+    borderRadius: 12,
+    alignItems: "center",
+  },
+  errorText: {
+    fontFamily: "Poppins-Medium",
+    fontSize: 14,
+    color: "#d32f2f",
+    marginTop: 8,
+    marginBottom: 16,
+    textAlign: "center",
+  },
+  retryButton: {
+    backgroundColor: "#5e72e4",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    color: "#fff",
+    fontFamily: "Poppins-Medium",
+    fontSize: 14,
+  },
+  loadingContainer: {
+    padding: 20,
+    alignItems: "center",
+  },
+  loadingText: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 16,
+    color: "#666",
+  },
+});

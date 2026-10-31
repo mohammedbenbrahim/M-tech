@@ -1,0 +1,12 @@
+import { Stack } from "expo-router";
+import React from "react";
+
+export default function HistoriqueLayout() {
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* Main Pointage screen */}
+      <Stack.Screen name="index" />
+      {/* Hidden screens, accessible only through navigation */}
+    </Stack>
+  );
+}

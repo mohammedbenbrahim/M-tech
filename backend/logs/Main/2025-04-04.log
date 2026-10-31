@@ -1,0 +1,38 @@
+2025-04-04 09:04:06 [INFO]: [HTTP] POST /auth/login - IP: ::ffff:10.100.5.107
+2025-04-04 09:04:06 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 09:23:47 [INFO]: [HTTP] POST /auth/login - IP: ::ffff:10.100.5.107
+2025-04-04 09:23:47 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 09:28:17 [INFO]: [HTTP] POST /auth/login - IP: ::ffff:10.100.5.107
+2025-04-04 09:28:26 [INFO]: [HTTP] POST /auth/login - IP: ::ffff:10.100.5.107
+2025-04-04 09:28:26 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 09:29:45 [INFO]: [HTTP] POST /auth/login - IP: ::ffff:10.100.5.107
+2025-04-04 09:29:45 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 09:43:32 [INFO]: [HTTP] POST /auth/login - IP: ::1
+2025-04-04 09:43:32 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 09:43:59 [INFO]: Server is running on port 4000
+2025-04-04 09:44:02 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:44:02 [WARN]: No token provided in Authorization header.
+2025-04-04 09:45:04 [INFO]: Server is running on port 4000
+2025-04-04 09:45:06 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:45:06 [ERROR]: Erreur d'authentification : jwt must be provided
+2025-04-04 09:45:19 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:45:19 [ERROR]: Erreur d'authentification : jwt must be provided
+2025-04-04 09:45:29 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:45:44 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:45:44 [ERROR]: Erreur d'authentification : jwt must be provided
+2025-04-04 09:49:02 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:49:02 [ERROR]: Erreur d'authentification : jwt must be provided
+2025-04-04 09:49:05 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:49:05 [ERROR]: Erreur d'authentification : invalid algorithm
+2025-04-04 09:49:07 [INFO]: [HTTP] GET /protected - IP: ::1
+2025-04-04 09:49:07 [ERROR]: Erreur d'authentification : invalid algorithm
+2025-04-04 10:17:07 [INFO]: Server is running on port 4000
+2025-04-04 10:17:10 [INFO]: [HTTP] POST /auth/login - IP: ::1
+2025-04-04 10:17:10 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 10:21:26 [INFO]: Server is running on port 4000
+2025-04-04 10:21:29 [INFO]: [HTTP] POST /auth/login - IP: ::1
+2025-04-04 10:21:30 [INFO]: ✅ Utilisateur connecté: demo with id : 1
+2025-04-04 11:36:31 [INFO]: Server is running on port 4000
+2025-04-04 11:36:33 [INFO]: [HTTP] POST /auth/login - IP: ::1
+2025-04-04 11:36:34 [INFO]: ✅ Utilisateur connecté: demo with id: 1
+2025-04-04 16:35:18 [INFO]: [HTTP] POST /auth/refresh-token - IP: ::ffff:10.100.5.107
